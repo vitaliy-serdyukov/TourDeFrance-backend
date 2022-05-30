@@ -17,6 +17,9 @@ public class Team {
   @Column(nullable = false)
   private String teamName;
 
+  @Column(nullable = false)
+  private String country;
+
   @OneToMany
   @JoinColumn(name = "team_id")
   @JsonIgnore
