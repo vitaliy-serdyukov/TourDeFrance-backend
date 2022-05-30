@@ -1,5 +1,6 @@
 package com.example.tourdefrancebackend.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -17,12 +18,10 @@ public class Team {
   @Column(nullable = false)
   private String teamName;
 
-  @Column(nullable = false)
-  private String country;
-
   @OneToMany
   @JoinColumn(name = "team_id")
-  @JsonIgnore
+/*  @JsonIgnore*/
+  @JsonBackReference
   private Set<Rider> riders = new HashSet<>();
 
   public int getTeamId() {
@@ -41,14 +40,6 @@ public class Team {
     this.teamName = teamName;
   }
 
-  public String getCountry() {
-    return country;
-  }
-
-  public void setCountry(String country) {
-    this.country = country;
-  }
-
   public Set<Rider> getRiders() {
     return riders;
   }
@@ -57,12 +48,12 @@ public class Team {
     this.riders = riders;
   }
 
+
   @Override
   public String toString() {
     return "Team{" +
         "teamId=" + teamId +
         ", teamName='" + teamName + '\'' +
-        ", country='" + country + '\'' +
         ", riders=" + riders +
         '}';
   }

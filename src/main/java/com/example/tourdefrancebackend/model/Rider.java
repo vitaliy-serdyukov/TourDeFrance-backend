@@ -20,7 +20,10 @@ public class Rider {
   private int age;
 
   @Column(nullable = false)
-  private int riderTime;
+  private String country;
+
+  @Column(nullable = false)
+  private int riderTime;// rider time in seconds
 
   @Column(nullable = false)
   private int mountainPoints;
@@ -65,6 +68,14 @@ public class Rider {
     this.age = age;
   }
 
+  public String getCountry() {
+    return country;
+  }
+
+  public void setCountry(String country) {
+    this.country = country;
+  }
+
   public int getRiderTime() {
     return riderTime;
   }
@@ -104,6 +115,7 @@ public class Rider {
         ", firstName='" + firstName + '\'' +
         ", lastName='" + lastName + '\'' +
         ", age=" + age +
+        ", country='" + country + '\'' +
         ", riderTime=" + riderTime +
         ", mountainPoints=" + mountainPoints +
         ", sprintPoints=" + sprintPoints +
