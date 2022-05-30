@@ -29,15 +29,6 @@ public class RiderRESTController {
     return riderRepository.findAll();
   }
 
-  @GetMapping("/show/rider/{id}")
-  public Rider findRiderById(@PathVariable int id) {
-    Optional<Rider> obj = riderRepository.findById(id);
-    if (obj.isPresent()) {
-      return obj.get();
-    } else {
-      return null;
-    }
-  }
 
   @GetMapping("/show/riderByTeam/{id}")
   public List<Rider> findRiderByTeam(@PathVariable int id) {

@@ -20,7 +20,7 @@ public class TeamRESTController {
   TeamRepository teamRepository;
 
   @GetMapping("/teams")
-  public List<Team> faaAllePartier() {
+  public List<Team> getAllTeams() {
     return teamRepository.findAll();
   }
 
@@ -54,7 +54,7 @@ public class TeamRESTController {
       teamRepository.deleteById(id);
       return new ResponseEntity<>("delete id = " + id, HttpStatus.OK);
     } catch (Exception err) {
-      return new ResponseEntity<>("Could not id at all = " + id, HttpStatus.NOT_FOUND);
+      return new ResponseEntity<>("Team with id= " + id + " couldn't be deleted", HttpStatus.NOT_FOUND);
     }
   }
 }
